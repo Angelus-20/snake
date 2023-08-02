@@ -14,4 +14,4 @@ const connect = function () {
 };
 
 console.log("Connecting ...");
-const connection = connect();
+connect();
