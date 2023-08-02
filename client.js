@@ -16,15 +16,11 @@ const connect = function () {
   });
 
   conn.on("data", data => {
-    if (data === 'w') {
-      conn.write('Move: up');
-    }
-    // Add other conditions for 'a', 's', and 'd' if needed
-
     console.log(`Received data: ${data}`);
+    // Process the incoming data from the server (if needed)
   });
 
-  setupInput();
+  setupInput(conn); // Pass the connection to the setupInput function
 
   return conn;
 };
