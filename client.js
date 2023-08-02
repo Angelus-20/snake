@@ -1,5 +1,4 @@
-const net = require("net"); 
-
+const net = require("net");
 
 const connect = function () {
   const conn = net.createConnection({
@@ -7,21 +6,25 @@ const connect = function () {
     port: 50541
   });
 
-  // interprets incoming data as text
   conn.setEncoding("utf8");
 
-  // Registers the "connect" event
   conn.on("connect", () => {
     console.log("Successfully connected to game server");
     const playerName = "Edwin";
     conn.write(`Name: ${playerName}`);
   });
 
+  conn.on("data", data => {
+    if (data === 'w') {
+      conn.write('Move: up');
+    }
+    // Add other conditions for 'a', 's', and 'd' if needed
 
+    console.log(`Received data: ${data}`);
+  });
 
   return conn;
 };
 
 console.log("Connecting ...");
 connect();
-
