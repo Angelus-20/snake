@@ -1,17 +1,31 @@
+
 const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit(); // Exit on Ctrl+C
   } else if (key === 'w') {
-    connection.write('Move: up'); // Send the 'Move: up' message to the server
+    connection.write('Move: up'); 
+    
   } else if (key === 'a') {
-    connection.write('Move: left'); // Send the 'Move: left' message to the server
-  } else if (key === 's') {
-    connection.write('Move: right'); // Send the 'Move: right' message to the server
+    connection.write('Move: left'); 
+
   } else if (key === 'd') {
-    connection.write('Move: down'); // Send the 'Move: down' message to the server
+    connection.write('Move: right'); 
+
+  } else if (key === 's') {
+    connection.write('Move: down'); 
+
+  } else if (key === '1') {
+    connection.write('Say: Move!'); 
+
+  } else if (key === '2') {
+    connection.write('Say: woooo!');
+
+  } else if (key === '3') {
+    connection.write('Say: finally!'); // Send canned message to the server
   }
   // Add other conditions to handle other input, if needed
 };
+
 
 const setupInput = function (conn) {
   connection = conn;
